@@ -1,0 +1,159 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+Assignment \#3
+
+\begin{quote}
+Sabancı University\\
+Computer Science \& Engineering\\
+CS419 - Digital Image and Video Analysis\\
+Fall semester 2025 - 2026
+
+\textbf{1} \textbf{Goal}
+
+You are expected to implement a segmentation pipeline from scratch.
+
+\textbf{2} \textbf{Dataset}
+
+You will use a microscopy cell dataset from 20221. This google drive
+link2contains various images (images folder) and their pixel level
+annotations (labels folder) as 16bit tiff files.
+
+\textbf{3} \textbf{Task}
+
+You are expected to develop a segmentation pipeline that given a color
+image from the aforemen-tioned directory, produces as output a new
+grayscale image of the same size, where every pixel of every cell (as
+defined by the annotations) is set to a different scalar pixel value;
+e.g. let's say an image contains 3 cells. Then the output will set all
+the pixels of cell-1 to 1, all the pixels of cell-2 to 2, all the pixels
+of cell-3 to 3, and all the background pixels will be set to 0.
+
+You are free to propose any method you want, as long as it is not about
+deep learning. \textbf{The proposed method must be using at its core at
+least one of the segmentation methods treated in class.} Note that this
+is a challenging dataset! I expect you to study comprehensively the
+effect of the parameters of your method on segmentation performance and
+to investigate its robustness. How good is it? When is it performing
+well? When is it performing bad? And why?
+
+\textbf{4} \textbf{Deliverables}
+
+1. Your code as a python file, or as a python notebook. Make sure its
+name is your student id.
+
+2. A report in pdf format, prepared according to the IEEE double column
+conference template. Your report should elaborate your method, and
+justify its design decisions. It must also contain visuals of successful
+segmentations and failures. Report your numerical scores using at least
+10 images of your choice from the dataset.
+
+\textbf{5} \textbf{Evaluation}
+\end{quote}
+
+Performance will be measured in terms of pixel level F1 score (as \%)
+and intersection over union
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+scores (\emph{∈}{[}0\emph{,} 1{]}).
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Your submission will be tested with arbitrary images of our choice from
+the
+\end{quote}
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+1https://neurips22-cellseg.grand-challenge.org/dataset/\\
+2https://drive.google.com/drive/folders/1OIGdxeyBFX73f9rIdq1AdzblY2Y9Jc5g
+\end{quote}
+
+1
+
+provided directory. The report will be evaluated in terms of
+comprehensiveness, design quality and justifications.
+
+\textbf{6} \textbf{Instructions}
+
+\begin{quote}
+1. Integrity: plagiarism is strongly prohibited and will lead to failure
+of this course.
+
+2. Questions: post your questions to the ``questions'' forum at the
+course's sucouse page.
+\end{quote}
+
+Good luck.
+
+2
+
+\end{document}
