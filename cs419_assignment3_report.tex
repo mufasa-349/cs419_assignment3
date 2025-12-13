@@ -194,9 +194,10 @@ Figure~\ref{fig:success1} shows a well-segmented image with clear cell boundarie
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.48\columnwidth]{test-cases/cell_00969.png}
-\includegraphics[width=0.48\columnwidth]{test-cases/cell_00969_vis.png}
-\caption{Successful segmentation example (cell\_00969): Original image (left) and segmentation overlay with 29 detected instances (right).}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00969.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00969_vis.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00969_pred_visualized.png}
+\caption{Successful segmentation example (cell\_00969): Original image (left), segmentation overlay with borders (center), and color-coded instance labels (right) showing 29 detected instances.}
 \label{fig:success1}
 \end{figure}
 
@@ -204,9 +205,10 @@ Figure~\ref{fig:success2} demonstrates robust performance on images with high ce
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.48\columnwidth]{test-cases/cell_00968.png}
-\includegraphics[width=0.48\columnwidth]{test-cases/cell_00968_vis.png}
-\caption{High-density cell image (cell\_00968): Original (left) and segmentation with 151 detected instances (right).}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00968.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00968_vis.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00968_pred_visualized.png}
+\caption{High-density cell image (cell\_00968): Original (left), borders overlay (center), and instance labels (right) with 151 detected instances.}
 \label{fig:success2}
 \end{figure}
 
@@ -214,9 +216,10 @@ Figure~\ref{fig:success3} shows successful handling of dark-background images wi
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.48\columnwidth]{test-cases/cell_00971.png}
-\includegraphics[width=0.48\columnwidth]{test-cases/cell_00971_vis.png}
-\caption{Dark-background image (cell\_00971): Original (left) and segmentation with 13 detected instances (right). Automatic invert detection handled this case correctly.}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00971.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00971_vis.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00971_pred_visualized.png}
+\caption{Dark-background image (cell\_00971): Original (left), borders overlay (center), and instance labels (right) with 13 detected instances. Automatic invert detection handled this case correctly.}
 \label{fig:success3}
 \end{figure}
 
@@ -225,9 +228,10 @@ Figure~\ref{fig:failure1} illustrates a case of under-segmentation where some ce
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.48\columnwidth]{test-cases/cell_00987.png}
-\includegraphics[width=0.48\columnwidth]{test-cases/cell_00987_vis.png}
-\caption{Under-segmentation case (cell\_00987): Only 9 instances detected. Some cells are merged due to insufficient markers from distance transform.}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00987.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00987_vis.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00987_pred_visualized.png}
+\caption{Under-segmentation case (cell\_00987): Original (left), borders (center), and instance labels (right) showing only 9 instances detected. Some cells are merged due to insufficient markers from distance transform.}
 \label{fig:failure1}
 \end{figure}
 
@@ -235,9 +239,10 @@ Figure~\ref{fig:failure2} shows over-segmentation where noise or artifacts are i
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.48\columnwidth]{test-cases/cell_00967.png}
-\includegraphics[width=0.48\columnwidth]{test-cases/cell_00967_vis.png}
-\caption{Over-segmentation case (cell\_00967): 119 instances detected, some may be noise artifacts. The high density and complex morphology challenge the method.}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00967.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00967_vis.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00967_pred_visualized.png}
+\caption{Over-segmentation case (cell\_00967): Original (left), borders (center), and instance labels (right) showing 119 instances detected. Some may be noise artifacts. The high density and complex morphology challenge the method.}
 \label{fig:failure2}
 \end{figure}
 
@@ -245,9 +250,10 @@ Figure~\ref{fig:failure3} demonstrates a challenging case with very low contrast
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.48\columnwidth]{test-cases/cell_00986.png}
-\includegraphics[width=0.48\columnwidth]{test-cases/cell_00986_vis.png}
-\caption{Low-contrast challenge (cell\_00986): Only 19 instances detected. Low contrast between cells and background makes thresholding unreliable.}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00986.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00986_vis.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00986_pred_visualized.png}
+\caption{Low-contrast challenge (cell\_00986): Original (left), borders (center), and instance labels (right) showing only 19 instances detected. Low contrast between cells and background makes thresholding unreliable.}
 \label{fig:failure3}
 \end{figure}
 
@@ -255,9 +261,10 @@ Figure~\ref{fig:failure4} shows a case where the method struggles with irregular
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.48\columnwidth]{test-cases/bmp-img2.jpeg}
-\includegraphics[width=0.48\columnwidth]{test-cases/bmp-img2_vis.png}
-\caption{Irregular morphology (bmp-img2): 29 instances detected. Irregular cell shapes and size variations challenge the distance-transform marker extraction.}
+\includegraphics[width=0.32\columnwidth]{test-cases/bmp-img2.jpeg}
+\includegraphics[width=0.32\columnwidth]{test-cases/bmp-img2_vis.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/bmp-img2_pred_visualized.png}
+\caption{Irregular morphology (bmp-img2): Original (left), borders (center), and instance labels (right) showing 29 instances detected. Irregular cell shapes and size variations challenge the distance-transform marker extraction.}
 \label{fig:failure4}
 \end{figure}
 
@@ -265,9 +272,10 @@ Figure~\ref{fig:success4} demonstrates another successful case with well-separat
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.48\columnwidth]{test-cases/cell_00975.png}
-\includegraphics[width=0.48\columnwidth]{test-cases/cell_00975_vis.png}
-\caption{Well-separated cells (cell\_00975): Original (left) and segmentation with 53 detected instances (right). Good cell separation and contrast.}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00975.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00975_vis.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00975_pred_visualized.png}
+\caption{Well-separated cells (cell\_00975): Original (left), borders (center), and instance labels (right) with 53 detected instances. Good cell separation and contrast.}
 \label{fig:success4}
 \end{figure}
 
@@ -275,9 +283,10 @@ Figure~\ref{fig:success5} shows successful segmentation on a BMP format image wi
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.48\columnwidth]{test-cases/bmp-img1.jpeg}
-\includegraphics[width=0.48\columnwidth]{test-cases/bmp-img1_vis.png}
-\caption{BMP format image (bmp-img1): Original (left) and segmentation with 24 detected instances (right). Method handles different image formats well.}
+\includegraphics[width=0.32\columnwidth]{test-cases/bmp-img1.jpeg}
+\includegraphics[width=0.32\columnwidth]{test-cases/bmp-img1_vis.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/bmp-img1_pred_visualized.png}
+\caption{BMP format image (bmp-img1): Original (left), borders (center), and instance labels (right) with 24 detected instances. Method handles different image formats well.}
 \label{fig:success5}
 \end{figure}
 
@@ -285,9 +294,10 @@ Figure~\ref{fig:success6} illustrates robust performance on images with varying 
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.48\columnwidth]{test-cases/cell_00973.png}
-\includegraphics[width=0.48\columnwidth]{test-cases/cell_00973_vis.png}
-\caption{Varying cell sizes (cell\_00973): Original (left) and segmentation with 92 detected instances (right). Method handles size variations reasonably well.}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00973.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00973_vis.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00973_pred_visualized.png}
+\caption{Varying cell sizes (cell\_00973): Original (left), borders (center), and instance labels (right) with 92 detected instances. Method handles size variations reasonably well.}
 \label{fig:success6}
 \end{figure}
 
@@ -295,9 +305,10 @@ Figure~\ref{fig:failure5} shows a challenging case with very high cell density w
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.48\columnwidth]{test-cases/cell_00972.png}
-\includegraphics[width=0.48\columnwidth]{test-cases/cell_00972_vis.png}
-\caption{Very high density (cell\_00972): 134 instances detected. Extreme density leads to some missed detections and boundary placement errors.}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00972.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00972_vis.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00972_pred_visualized.png}
+\caption{Very high density (cell\_00972): Original (left), borders (center), and instance labels (right) showing 134 instances detected. Extreme density leads to some missed detections and boundary placement errors.}
 \label{fig:failure5}
 \end{figure}
 
@@ -305,9 +316,10 @@ Figure~\ref{fig:success7} demonstrates the instance label visualization, showing
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.48\columnwidth]{test-cases/cell_00970.png}
-\includegraphics[width=0.48\columnwidth]{test-cases/cell_00970_pred_visualized.png}
-\caption{Instance label visualization (cell\_00970): Original image (left) and color-coded instance labels (right). Each cell has a unique integer label (1--89).}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00970.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00970_vis.png}
+\includegraphics[width=0.32\columnwidth]{test-cases/cell_00970_pred_visualized.png}
+\caption{Instance label visualization (cell\_00970): Original image (left), borders overlay (center), and color-coded instance labels (right). Each cell has a unique integer label (1--89).}
 \label{fig:success7}
 \end{figure}
 

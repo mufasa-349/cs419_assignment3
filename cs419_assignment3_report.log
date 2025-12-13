@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.24)  13 DEC 2025 20:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.24)  13 DEC 2025 20:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -592,158 +592,240 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 File: test-cases/cell_00969.png Graphic file (type png)
 <use test-cases/cell_00969.png>
 Package pdftex.def Info: test-cases/cell_00969.png  used on input line 197.
-(pdftex.def)             Requested size: 120.95892pt x 120.95941pt.
+(pdftex.def)             Requested size: 80.64185pt x 80.637pt.
 <test-cases/cell_00969_vis.png, id=123, 513.92pt x 513.92pt>
 File: test-cases/cell_00969_vis.png Graphic file (type png)
 <use test-cases/cell_00969_vis.png>
 Package pdftex.def Info: test-cases/cell_00969_vis.png  used on input line 198.
 
-(pdftex.def)             Requested size: 120.95892pt x 120.95941pt.
-<test-cases/cell_00968.png, id=125, 513.92pt x 513.92pt>
+(pdftex.def)             Requested size: 80.64185pt x 80.637pt.
+<test-cases/cell_00969_pred_visualized.png, id=124, 1027.84pt x 513.92pt>
+File: test-cases/cell_00969_pred_visualized.png Graphic file (type png)
+<use test-cases/cell_00969_pred_visualized.png>
+Package pdftex.def Info: test-cases/cell_00969_pred_visualized.png  used on inp
+ut line 199.
+(pdftex.def)             Requested size: 80.64185pt x 40.31458pt.
+<test-cases/cell_00968.png, id=126, 513.92pt x 513.92pt>
 File: test-cases/cell_00968.png Graphic file (type png)
 <use test-cases/cell_00968.png>
-Package pdftex.def Info: test-cases/cell_00968.png  used on input line 207.
-(pdftex.def)             Requested size: 120.95892pt x 120.95941pt.
-<test-cases/cell_00968_vis.png, id=126, 513.92pt x 513.92pt>
+Package pdftex.def Info: test-cases/cell_00968.png  used on input line 208.
+(pdftex.def)             Requested size: 80.64185pt x 80.637pt.
+<test-cases/cell_00968_vis.png, id=127, 513.92pt x 513.92pt>
 File: test-cases/cell_00968_vis.png Graphic file (type png)
 <use test-cases/cell_00968_vis.png>
-Package pdftex.def Info: test-cases/cell_00968_vis.png  used on input line 208.
+Package pdftex.def Info: test-cases/cell_00968_vis.png  used on input line 209.
 
-(pdftex.def)             Requested size: 120.95892pt x 120.95941pt.
-<test-cases/cell_00971.png, id=128, 513.92pt x 513.92pt>
+(pdftex.def)             Requested size: 80.64185pt x 80.637pt.
+<test-cases/cell_00968_pred_visualized.png, id=128, 1027.84pt x 513.92pt>
+File: test-cases/cell_00968_pred_visualized.png Graphic file (type png)
+<use test-cases/cell_00968_pred_visualized.png>
+Package pdftex.def Info: test-cases/cell_00968_pred_visualized.png  used on inp
+ut line 210.
+(pdftex.def)             Requested size: 80.64185pt x 40.31458pt.
+<test-cases/cell_00971.png, id=130, 513.92pt x 513.92pt>
 File: test-cases/cell_00971.png Graphic file (type png)
 <use test-cases/cell_00971.png>
-Package pdftex.def Info: test-cases/cell_00971.png  used on input line 217.
-(pdftex.def)             Requested size: 120.95892pt x 120.95941pt.
-<test-cases/cell_00971_vis.png, id=129, 513.92pt x 513.92pt>
+Package pdftex.def Info: test-cases/cell_00971.png  used on input line 219.
+(pdftex.def)             Requested size: 80.64185pt x 80.637pt.
+<test-cases/cell_00971_vis.png, id=131, 513.92pt x 513.92pt>
 File: test-cases/cell_00971_vis.png Graphic file (type png)
 <use test-cases/cell_00971_vis.png>
-Package pdftex.def Info: test-cases/cell_00971_vis.png  used on input line 218.
+Package pdftex.def Info: test-cases/cell_00971_vis.png  used on input line 220.
 
-(pdftex.def)             Requested size: 120.95892pt x 120.95941pt.
+(pdftex.def)             Requested size: 80.64185pt x 80.637pt.
+<test-cases/cell_00971_pred_visualized.png, id=132, 1027.84pt x 513.92pt>
+File: test-cases/cell_00971_pred_visualized.png Graphic file (type png)
+<use test-cases/cell_00971_pred_visualized.png>
+Package pdftex.def Info: test-cases/cell_00971_pred_visualized.png  used on inp
+ut line 221.
+(pdftex.def)             Requested size: 80.64185pt x 40.31458pt.
 
 
 [2]
 
-<test-cases/cell_00987.png, id=149, 513.92pt x 513.92pt>
+<test-cases/cell_00987.png, id=152, 513.92pt x 513.92pt>
 File: test-cases/cell_00987.png Graphic file (type png)
 <use test-cases/cell_00987.png>
-Package pdftex.def Info: test-cases/cell_00987.png  used on input line 228.
-(pdftex.def)             Requested size: 120.95892pt x 120.95941pt.
-<test-cases/cell_00987_vis.png, id=150, 513.92pt x 513.92pt>
+Package pdftex.def Info: test-cases/cell_00987.png  used on input line 231.
+(pdftex.def)             Requested size: 80.64185pt x 80.637pt.
+<test-cases/cell_00987_vis.png, id=153, 513.92pt x 513.92pt>
 File: test-cases/cell_00987_vis.png Graphic file (type png)
 <use test-cases/cell_00987_vis.png>
-Package pdftex.def Info: test-cases/cell_00987_vis.png  used on input line 229.
+Package pdftex.def Info: test-cases/cell_00987_vis.png  used on input line 232.
 
-(pdftex.def)             Requested size: 120.95892pt x 120.95941pt.
-<test-cases/cell_00967.png, id=152, 513.92pt x 513.92pt>
-File: test-cases/cell_00967.png Graphic file (type png)
-<use test-cases/cell_00967.png>
-Package pdftex.def Info: test-cases/cell_00967.png  used on input line 238.
-(pdftex.def)             Requested size: 120.95892pt x 120.95941pt.
-<test-cases/cell_00967_vis.png, id=153, 513.92pt x 513.92pt>
-File: test-cases/cell_00967_vis.png Graphic file (type png)
-<use test-cases/cell_00967_vis.png>
-Package pdftex.def Info: test-cases/cell_00967_vis.png  used on input line 239.
-
-(pdftex.def)             Requested size: 120.95892pt x 120.95941pt.
+(pdftex.def)             Requested size: 80.64185pt x 80.637pt.
+<test-cases/cell_00987_pred_visualized.png, id=154, 1027.84pt x 513.92pt>
+File: test-cases/cell_00987_pred_visualized.png Graphic file (type png)
+<use test-cases/cell_00987_pred_visualized.png>
+Package pdftex.def Info: test-cases/cell_00987_pred_visualized.png  used on inp
+ut line 233.
+(pdftex.def)             Requested size: 80.64185pt x 40.31458pt.
 
 
 [3 <./test-cases/cell_00969.png (PNG copy)> <./test-cases/cell_00969_vis.png (P
-NG copy)> <./test-cases/cell_00968.png (PNG copy)> <./test-cases/cell_00968_vis
-.png (PNG copy)> <./test-cases/cell_00971.png (PNG copy)> <./test-cases/cell_00
-971_vis.png (PNG copy)>]
-<test-cases/cell_00986.png, id=168, 513.92pt x 513.92pt>
+NG copy)> <./test-cases/cell_00969_pred_visualized.png (PNG copy)> <./test-case
+s/cell_00968.png (PNG copy)> <./test-cases/cell_00968_vis.png (PNG copy)> <./te
+st-cases/cell_00968_pred_visualized.png (PNG copy)> <./test-cases/cell_00971.pn
+g (PNG copy)> <./test-cases/cell_00971_vis.png (PNG copy)> <./test-cases/cell_0
+0971_pred_visualized.png (PNG copy)> <./test-cases/cell_00987.png (PNG copy)> <
+./test-cases/cell_00987_vis.png (PNG copy)> <./test-cases/cell_00987_pred_visua
+lized.png (PNG copy)>]
+<test-cases/cell_00967.png, id=168, 513.92pt x 513.92pt>
+File: test-cases/cell_00967.png Graphic file (type png)
+<use test-cases/cell_00967.png>
+Package pdftex.def Info: test-cases/cell_00967.png  used on input line 242.
+(pdftex.def)             Requested size: 80.64185pt x 80.637pt.
+<test-cases/cell_00967_vis.png, id=169, 513.92pt x 513.92pt>
+File: test-cases/cell_00967_vis.png Graphic file (type png)
+<use test-cases/cell_00967_vis.png>
+Package pdftex.def Info: test-cases/cell_00967_vis.png  used on input line 243.
+
+(pdftex.def)             Requested size: 80.64185pt x 80.637pt.
+<test-cases/cell_00967_pred_visualized.png, id=170, 1027.84pt x 513.92pt>
+File: test-cases/cell_00967_pred_visualized.png Graphic file (type png)
+<use test-cases/cell_00967_pred_visualized.png>
+Package pdftex.def Info: test-cases/cell_00967_pred_visualized.png  used on inp
+ut line 244.
+(pdftex.def)             Requested size: 80.64185pt x 40.31458pt.
+<test-cases/cell_00986.png, id=172, 513.92pt x 513.92pt>
 File: test-cases/cell_00986.png Graphic file (type png)
 <use test-cases/cell_00986.png>
-Package pdftex.def Info: test-cases/cell_00986.png  used on input line 248.
-(pdftex.def)             Requested size: 120.95892pt x 120.95941pt.
-<test-cases/cell_00986_vis.png, id=169, 513.92pt x 513.92pt>
+Package pdftex.def Info: test-cases/cell_00986.png  used on input line 253.
+(pdftex.def)             Requested size: 80.64185pt x 80.637pt.
+<test-cases/cell_00986_vis.png, id=173, 513.92pt x 513.92pt>
 File: test-cases/cell_00986_vis.png Graphic file (type png)
 <use test-cases/cell_00986_vis.png>
-Package pdftex.def Info: test-cases/cell_00986_vis.png  used on input line 249.
+Package pdftex.def Info: test-cases/cell_00986_vis.png  used on input line 254.
 
-(pdftex.def)             Requested size: 120.95892pt x 120.95941pt.
-<test-cases/bmp-img2.jpeg, id=171, 2047.65pt x 1541.76pt>
+(pdftex.def)             Requested size: 80.64185pt x 80.637pt.
+<test-cases/cell_00986_pred_visualized.png, id=174, 1027.84pt x 513.92pt>
+File: test-cases/cell_00986_pred_visualized.png Graphic file (type png)
+<use test-cases/cell_00986_pred_visualized.png>
+Package pdftex.def Info: test-cases/cell_00986_pred_visualized.png  used on inp
+ut line 255.
+(pdftex.def)             Requested size: 80.64185pt x 40.31458pt.
+<test-cases/bmp-img2.jpeg, id=176, 2047.65pt x 1541.76pt>
 File: test-cases/bmp-img2.jpeg Graphic file (type jpg)
 <use test-cases/bmp-img2.jpeg>
-Package pdftex.def Info: test-cases/bmp-img2.jpeg  used on input line 258.
-(pdftex.def)             Requested size: 120.95892pt x 91.06656pt.
-<test-cases/bmp-img2_vis.png, id=172, 2047.65pt x 1541.76pt>
+Package pdftex.def Info: test-cases/bmp-img2.jpeg  used on input line 264.
+(pdftex.def)             Requested size: 80.64185pt x 60.69536pt.
+<test-cases/bmp-img2_vis.png, id=177, 2047.65pt x 1541.76pt>
 File: test-cases/bmp-img2_vis.png Graphic file (type png)
 <use test-cases/bmp-img2_vis.png>
-Package pdftex.def Info: test-cases/bmp-img2_vis.png  used on input line 259.
-(pdftex.def)             Requested size: 120.95892pt x 91.06656pt.
-<test-cases/cell_00975.png, id=174, 513.92pt x 513.92pt>
+Package pdftex.def Info: test-cases/bmp-img2_vis.png  used on input line 265.
+(pdftex.def)             Requested size: 80.64185pt x 60.69536pt.
+<test-cases/bmp-img2_pred_visualized.png, id=178, 4095.3pt x 1541.76pt>
+File: test-cases/bmp-img2_pred_visualized.png Graphic file (type png)
+<use test-cases/bmp-img2_pred_visualized.png>
+Package pdftex.def Info: test-cases/bmp-img2_pred_visualized.png  used on input
+ line 266.
+(pdftex.def)             Requested size: 80.64185pt x 30.34767pt.
+<test-cases/cell_00975.png, id=180, 513.92pt x 513.92pt>
 File: test-cases/cell_00975.png Graphic file (type png)
 <use test-cases/cell_00975.png>
-Package pdftex.def Info: test-cases/cell_00975.png  used on input line 268.
-(pdftex.def)             Requested size: 120.95892pt x 120.95941pt.
-<test-cases/cell_00975_vis.png, id=175, 513.92pt x 513.92pt>
+Package pdftex.def Info: test-cases/cell_00975.png  used on input line 275.
+(pdftex.def)             Requested size: 80.64185pt x 80.637pt.
+<test-cases/cell_00975_vis.png, id=181, 513.92pt x 513.92pt>
 File: test-cases/cell_00975_vis.png Graphic file (type png)
 <use test-cases/cell_00975_vis.png>
-Package pdftex.def Info: test-cases/cell_00975_vis.png  used on input line 269.
+Package pdftex.def Info: test-cases/cell_00975_vis.png  used on input line 276.
 
-(pdftex.def)             Requested size: 120.95892pt x 120.95941pt.
-<test-cases/bmp-img1.jpeg, id=177, 2047.65pt x 1541.76pt>
+(pdftex.def)             Requested size: 80.64185pt x 80.637pt.
+<test-cases/cell_00975_pred_visualized.png, id=182, 1027.84pt x 513.92pt>
+File: test-cases/cell_00975_pred_visualized.png Graphic file (type png)
+<use test-cases/cell_00975_pred_visualized.png>
+Package pdftex.def Info: test-cases/cell_00975_pred_visualized.png  used on inp
+ut line 277.
+(pdftex.def)             Requested size: 80.64185pt x 40.31458pt.
+<test-cases/bmp-img1.jpeg, id=184, 2047.65pt x 1541.76pt>
 File: test-cases/bmp-img1.jpeg Graphic file (type jpg)
 <use test-cases/bmp-img1.jpeg>
-Package pdftex.def Info: test-cases/bmp-img1.jpeg  used on input line 278.
-(pdftex.def)             Requested size: 120.95892pt x 91.06656pt.
-<test-cases/bmp-img1_vis.png, id=178, 2047.65pt x 1541.76pt>
+Package pdftex.def Info: test-cases/bmp-img1.jpeg  used on input line 286.
+(pdftex.def)             Requested size: 80.64185pt x 60.69536pt.
+<test-cases/bmp-img1_vis.png, id=185, 2047.65pt x 1541.76pt>
 File: test-cases/bmp-img1_vis.png Graphic file (type png)
 <use test-cases/bmp-img1_vis.png>
-Package pdftex.def Info: test-cases/bmp-img1_vis.png  used on input line 279.
-(pdftex.def)             Requested size: 120.95892pt x 91.06656pt.
-<test-cases/cell_00973.png, id=180, 513.92pt x 513.92pt>
+Package pdftex.def Info: test-cases/bmp-img1_vis.png  used on input line 287.
+(pdftex.def)             Requested size: 80.64185pt x 60.69536pt.
+<test-cases/bmp-img1_pred_visualized.png, id=186, 4095.3pt x 1541.76pt>
+File: test-cases/bmp-img1_pred_visualized.png Graphic file (type png)
+<use test-cases/bmp-img1_pred_visualized.png>
+Package pdftex.def Info: test-cases/bmp-img1_pred_visualized.png  used on input
+ line 288.
+(pdftex.def)             Requested size: 80.64185pt x 30.34767pt.
+<test-cases/cell_00973.png, id=188, 513.92pt x 513.92pt>
 File: test-cases/cell_00973.png Graphic file (type png)
 <use test-cases/cell_00973.png>
-Package pdftex.def Info: test-cases/cell_00973.png  used on input line 288.
-(pdftex.def)             Requested size: 120.95892pt x 120.95941pt.
-<test-cases/cell_00973_vis.png, id=181, 513.92pt x 513.92pt>
+Package pdftex.def Info: test-cases/cell_00973.png  used on input line 297.
+(pdftex.def)             Requested size: 80.64185pt x 80.637pt.
+<test-cases/cell_00973_vis.png, id=189, 513.92pt x 513.92pt>
 File: test-cases/cell_00973_vis.png Graphic file (type png)
 <use test-cases/cell_00973_vis.png>
-Package pdftex.def Info: test-cases/cell_00973_vis.png  used on input line 289.
+Package pdftex.def Info: test-cases/cell_00973_vis.png  used on input line 298.
 
-(pdftex.def)             Requested size: 120.95892pt x 120.95941pt.
-
-
-
-
-[4 <./test-cases/cell_00987.png (PNG copy)> <./test-cases/cell_00987_vis.png (P
-NG copy)> <./test-cases/cell_00967.png (PNG copy)> <./test-cases/cell_00967_vis
-.png (PNG copy)> <./test-cases/cell_00986.png (PNG copy)> <./test-cases/cell_00
-986_vis.png (PNG copy)> <./test-cases/bmp-img2.jpeg> <./test-cases/bmp-img2_vis
-.png (PNG copy)> <./test-cases/cell_00975.png (PNG copy)> <./test-cases/cell_00
-975_vis.png (PNG copy)> <./test-cases/bmp-img1.jpeg> <./test-cases/bmp-img1_vis
-.png (PNG copy)> <./test-cases/cell_00973.png (PNG copy)> <./test-cases/cell_00
-973_vis.png (PNG copy)>]
+(pdftex.def)             Requested size: 80.64185pt x 80.637pt.
+<test-cases/cell_00973_pred_visualized.png, id=190, 1027.84pt x 513.92pt>
+File: test-cases/cell_00973_pred_visualized.png Graphic file (type png)
+<use test-cases/cell_00973_pred_visualized.png>
+Package pdftex.def Info: test-cases/cell_00973_pred_visualized.png  used on inp
+ut line 299.
+(pdftex.def)             Requested size: 80.64185pt x 40.31458pt.
 <test-cases/cell_00972.png, id=192, 513.92pt x 513.92pt>
 File: test-cases/cell_00972.png Graphic file (type png)
 <use test-cases/cell_00972.png>
-Package pdftex.def Info: test-cases/cell_00972.png  used on input line 298.
-(pdftex.def)             Requested size: 120.95892pt x 120.95941pt.
+Package pdftex.def Info: test-cases/cell_00972.png  used on input line 308.
+(pdftex.def)             Requested size: 80.64185pt x 80.637pt.
 <test-cases/cell_00972_vis.png, id=193, 513.92pt x 513.92pt>
 File: test-cases/cell_00972_vis.png Graphic file (type png)
 <use test-cases/cell_00972_vis.png>
-Package pdftex.def Info: test-cases/cell_00972_vis.png  used on input line 299.
+Package pdftex.def Info: test-cases/cell_00972_vis.png  used on input line 309.
 
-(pdftex.def)             Requested size: 120.95892pt x 120.95941pt.
-<test-cases/cell_00970.png, id=195, 513.92pt x 513.92pt>
+(pdftex.def)             Requested size: 80.64185pt x 80.637pt.
+<test-cases/cell_00972_pred_visualized.png, id=194, 1027.84pt x 513.92pt>
+File: test-cases/cell_00972_pred_visualized.png Graphic file (type png)
+<use test-cases/cell_00972_pred_visualized.png>
+Package pdftex.def Info: test-cases/cell_00972_pred_visualized.png  used on inp
+ut line 310.
+(pdftex.def)             Requested size: 80.64185pt x 40.31458pt.
+<test-cases/cell_00970.png, id=196, 513.92pt x 513.92pt>
 File: test-cases/cell_00970.png Graphic file (type png)
 <use test-cases/cell_00970.png>
-Package pdftex.def Info: test-cases/cell_00970.png  used on input line 308.
-(pdftex.def)             Requested size: 120.95892pt x 120.95941pt.
-<test-cases/cell_00970_pred_visualized.png, id=196, 1027.84pt x 513.92pt>
+Package pdftex.def Info: test-cases/cell_00970.png  used on input line 319.
+(pdftex.def)             Requested size: 80.64185pt x 80.637pt.
+<test-cases/cell_00970_vis.png, id=197, 513.92pt x 513.92pt>
+File: test-cases/cell_00970_vis.png Graphic file (type png)
+<use test-cases/cell_00970_vis.png>
+Package pdftex.def Info: test-cases/cell_00970_vis.png  used on input line 320.
+
+(pdftex.def)             Requested size: 80.64185pt x 80.637pt.
+<test-cases/cell_00970_pred_visualized.png, id=198, 1027.84pt x 513.92pt>
 File: test-cases/cell_00970_pred_visualized.png Graphic file (type png)
 <use test-cases/cell_00970_pred_visualized.png>
 Package pdftex.def Info: test-cases/cell_00970_pred_visualized.png  used on inp
-ut line 309.
-(pdftex.def)             Requested size: 120.95892pt x 60.47578pt.
+ut line 321.
+(pdftex.def)             Requested size: 80.64185pt x 40.31458pt.
 
+
+
+
+[4 <./test-cases/cell_00967.png (PNG copy)> <./test-cases/cell_00967_vis.png (P
+NG copy)> <./test-cases/cell_00967_pred_visualized.png (PNG copy)> <./test-case
+s/cell_00986.png (PNG copy)> <./test-cases/cell_00986_vis.png (PNG copy)> <./te
+st-cases/cell_00986_pred_visualized.png (PNG copy)> <./test-cases/bmp-img2.jpeg
+> <./test-cases/bmp-img2_vis.png (PNG copy)> <./test-cases/bmp-img2_pred_visual
+ized.png (PNG copy)> <./test-cases/cell_00975.png (PNG copy)> <./test-cases/cel
+l_00975_vis.png (PNG copy)> <./test-cases/cell_00975_pred_visualized.png (PNG c
+opy)> <./test-cases/bmp-img1.jpeg> <./test-cases/bmp-img1_vis.png (PNG copy)> <
+./test-cases/bmp-img1_pred_visualized.png (PNG copy)> <./test-cases/cell_00973.
+png (PNG copy)> <./test-cases/cell_00973_vis.png (PNG copy)> <./test-cases/cell
+_00973_pred_visualized.png (PNG copy)> <./test-cases/cell_00972.png (PNG copy)>
+ <./test-cases/cell_00972_vis.png (PNG copy)> <./test-cases/cell_00972_pred_vis
+ualized.png (PNG copy)> <./test-cases/cell_00970.png (PNG copy)> <./test-cases/
+cell_00970_vis.png (PNG copy)> <./test-cases/cell_00970_pred_visualized.png (PN
+G copy)>]
 
 LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
-351.
+363.
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -752,17 +834,11 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Overfull \hbox (99.74898pt too wide) in paragraph at lines 355--355
+Overfull \hbox (99.74898pt too wide) in paragraph at lines 367--367
 []\OT1/lmtt/m/n/10 python watershed_cellseg.py --img_dir images/ --label_dir la
 bels/ \[] 
  []
 
-
-
-[5{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc} <./t
-est-cases/cell_00972.png (PNG copy)> <./test-cases/cell_00972_vis.png (PNG copy
-)> <./test-cases/cell_00970.png (PNG copy)> <./test-cases/cell_00970_pred_visua
-lized.png (PNG copy)>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -776,25 +852,26 @@ Before submitting the final camera ready copy, remember to:
 
 
 
-
-
-[6
-
-] (./cs419_assignment3_report.aux)
+[5{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}]
+(./cs419_assignment3_report.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `cs419_assignment3_report.out' has not change
 d.
 (rerunfilecheck)             Checksum: 8402FC0F4B8BA5D06ACA81A6ED4FB0D8;4355.
  ) 
 Here is how much of TeX's memory you used:
- 13189 strings out of 474662
- 213380 string characters out of 5751108
- 650174 words of memory out of 5000000
- 35820 multiletter control sequences out of 15000+600000
- 748926 words of font info for 230 fonts, out of 8000000 for 9000
+ 13264 strings out of 474662
+ 217202 string characters out of 5751108
+ 651174 words of memory out of 5000000
+ 35904 multiletter control sequences out of 15000+600000
+ 748602 words of font info for 226 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  75i,11n,79p,1021b,565s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></u
@@ -811,10 +888,10 @@ public/lm/lmr9.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/
 lm/lmri10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lm
 sy10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmsy7.p
 fb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on cs419_assignment3_report.pdf (6 pages, 13250336 bytes).
+Output written on cs419_assignment3_report.pdf (5 pages, 14216992 bytes).
 PDF statistics:
- 293 PDF objects out of 1000 (max. 8388607)
- 228 compressed objects within 3 object streams
- 61 named destinations out of 1000 (max. 500000)
- 37689 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 300 PDF objects out of 1000 (max. 8388607)
+ 224 compressed objects within 3 object streams
+ 60 named destinations out of 1000 (max. 500000)
+ 37749 words of extra memory for PDF output out of 42996 (max. 10000000)
 
