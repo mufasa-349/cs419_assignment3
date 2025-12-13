@@ -10,8 +10,19 @@
 \usepackage{amssymb}
 \usepackage{textcomp}
 \usepackage{lmodern}
+\usepackage{listings}
 \usepackage{hyperref}
 \usepackage{microtype}
+
+% Code listing style
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    breakatwhitespace=true,
+    columns=fullflexible,
+    frame=single,
+    frameround=tttt
+}
 
 \title{Instance Segmentation of Microscopy Cells Using Marker-Based Watershed}
 
@@ -68,15 +79,53 @@ To handle diverse microscopy image types (e.g., bright cells on dark background 
 \end{enumerate}
 This automatic detection eliminates the need for manual parameter tuning when processing mixed datasets and ensures robust performance across different microscopy imaging conditions.
 
+The implementation is shown below:
+\begin{lstlisting}[language=Python]
+def auto_detect_invert(feat: np.ndarray) -> bool:
+    hist = cv2.calcHist([feat], [0], None, [256], [0, 256])
+    dark_pixels = hist[0:86].sum()
+    bright_pixels = hist[170:256].sum()
+    total_pixels = feat.size
+    dark_ratio = dark_pixels / total_pixels
+    bright_ratio = bright_pixels / total_pixels
+    if dark_ratio > 0.3 and dark_ratio > bright_ratio:
+        return False  # Dark bg, bright cells
+    else:
+        return True   # Bright bg, dark cells
+\end{lstlisting}
+
 \subsection{Preprocessing and Foreground Mask}
 \begin{enumerate}
-\item Convert image to an informative single-channel feature map (default: grayscale; optional: LAB/HSV channels).
-\item Contrast enhancement using CLAHE (optional).
+\item \textbf{Image normalization:} Convert input images (including 16-bit TIFF) to 8-bit for OpenCV processing via min-max normalization.
+\item Convert image to an informative single-channel feature map (default: grayscale; optional: LAB/HSV channels via \texttt{extract\_feature\_channel}).
+\item Contrast enhancement using CLAHE (Contrast Limited Adaptive Histogram Equalization) with configurable clip limit and tile size.
 \item Denoising with Gaussian blur.
 \item \textbf{Automatic invert detection} (if enabled): Analyze histogram to determine whether cells are brighter or darker than background.
 \item Foreground/background separation via Otsu thresholding (or adaptive thresholding for uneven illumination), using the automatically detected or manually specified invert setting.
 \item Morphological opening to remove small noise; optional closing to fill small holes.
 \end{enumerate}
+
+The key preprocessing steps are implemented as follows:
+\begin{lstlisting}[language=Python]
+# Normalize 16-bit to 8-bit
+img8 = normalize_to_uint8(img)
+
+# Extract feature channel
+feat = extract_feature_channel(bgr8, channel="gray")
+
+# CLAHE contrast enhancement
+clahe = cv2.createCLAHE(clipLimit=2.0, 
+                        tileGridSize=(8, 8))
+feat = clahe.apply(feat)
+
+# Gaussian blur for denoising
+feat_blur = cv2.GaussianBlur(feat, (5, 5), 0.0)
+
+# Otsu thresholding with auto-invert
+if auto_detect_invert(feat_blur):
+    _, bw = cv2.threshold(feat_blur, 0, 255,
+        cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
+\end{lstlisting}
 
 \subsection{Marker Extraction via Distance Transform}
 \begin{enumerate}
@@ -91,9 +140,66 @@ where $\mathbf{1}(\cdot)$ is the indicator function and $\alpha$ is a tunable pa
 \item Create connected-components markers from sure\_fg and set unknown pixels to 0.
 \end{enumerate}
 
+The marker extraction implementation:
+\begin{lstlisting}[language=Python]
+# Distance transform on binary mask
+dist = cv2.distanceTransform(bw, cv2.DIST_L2, 
+                              maskSize=5)
+
+# Sure foreground: threshold distance map
+_, sure_fg = cv2.threshold(dist, 
+    alpha * dist.max(), 255, 0)
+sure_fg = np.uint8(sure_fg)
+
+# Sure background: dilate binary mask
+sure_bg = cv2.dilate(bw, kernel, iterations=3)
+
+# Unknown region
+unknown = cv2.subtract(sure_bg, sure_fg)
+
+# Connected components as markers
+n_cc, markers = cv2.connectedComponents(sure_fg)
+markers = markers + 1  # Background becomes 1
+markers[unknown == 255] = 0  # Unknown is 0
+\end{lstlisting}
+
 \subsection{Watershed and Instance Label Output}
 We apply watershed on the original image with the computed markers. The output is converted into an instance label image:
 background $\rightarrow 0$, and each region label $\rightarrow 1..N$. Tiny regions are filtered and remaining labels are re-indexed to be consecutive.
+
+The watershed application and post-processing:
+\begin{lstlisting}[language=Python]
+# Apply watershed with markers
+markers_ws = cv2.watershed(bgr8.copy(), markers)
+
+# Convert to instance labels
+inst = np.zeros(markers_ws.shape, dtype=np.int32)
+inst[markers_ws > 1] = markers_ws[markers_ws > 1] - 1
+inst[markers_ws == -1] = 0
+
+# Filter tiny regions and relabel
+inst = relabel_and_filter(inst, min_area=150)
+\end{lstlisting}
+
+The \texttt{relabel\_and\_filter} function removes regions smaller than \texttt{min\_area} and re-indexes remaining labels to be consecutive (1..K):
+\begin{lstlisting}[language=Python]
+def relabel_and_filter(inst, min_area=0):
+    labels, counts = np.unique(inst, 
+                                return_counts=True)
+    keep = {0}  # Always keep background
+    for lab, cnt in zip(labels, counts):
+        if lab > 0 and cnt >= min_area:
+            keep.add(lab)
+    # Zero out removed labels
+    mask_keep = np.isin(inst, list(keep))
+    inst[~mask_keep] = 0
+    # Relabel to consecutive 1..K
+    kept_labels = sorted([l for l in keep 
+                          if l != 0])
+    mapping = {lab: (i+1) for i, lab in 
+               enumerate(kept_labels)}
+    # ... apply mapping ...
+\end{lstlisting}
 
 \section{Parameters and Their Effects}
 Table~\ref{tab:params} lists the main parameters in our implementation. Their effects are summarized afterwards.
@@ -144,6 +250,26 @@ We report pixel-level (binary) F1 and IoU by comparing predicted foreground ($\h
 F1=\frac{2TP}{2TP+FP+FN}.
 \]
 \textbf{Note:} The assignment requires instance-labeled outputs; however, the provided evaluation metric is pixel-level, so we treat the task as foreground-vs-background for scoring.
+
+The evaluation is implemented as follows:
+\begin{lstlisting}[language=Python]
+def binary_metrics(pred_inst, gt_inst):
+    pred = (pred_inst > 0)  # Foreground mask
+    gt = (gt_inst > 0)
+    
+    tp = np.logical_and(pred, gt).sum()
+    fp = np.logical_and(pred, ~gt).sum()
+    fn = np.logical_and(~pred, gt).sum()
+    
+    precision = tp / (tp + fp + 1e-9)
+    recall = tp / (tp + fn + 1e-9)
+    f1 = 2 * precision * recall / 
+         (precision + recall + 1e-9)
+    iou = tp / (tp + fp + fn + 1e-9)
+    
+    return {"f1_percent": 100.0 * f1, 
+            "iou": iou, ...}
+\end{lstlisting}
 
 \section{Results and Discussion}
 \subsection{Test Dataset}
@@ -361,10 +487,10 @@ Marker-based watershed with distance-transform markers provides a practical and 
 
 \section*{Reproducibility}
 All code is provided in the file \texttt{watershed\_cellseg.py}. For batch evaluation:
-\begin{verbatim}
-python watershed_cellseg.py --img_dir images/ --label_dir labels/ \
-  --out_dir preds/ --eval
-\end{verbatim}
+\begin{lstlisting}[language=bash]
+python watershed_cellseg.py --img_dir images/ 
+  --label_dir labels/ --out_dir preds/ --eval
+\end{lstlisting}
 The automatic invert detection is enabled by default. To disable it and use manual settings, use \texttt{--no\_auto\_invert} along with \texttt{--invert} or \texttt{--no\_invert}. The code file should be renamed to your student ID as required by the assignment.
 
 \end{document}
