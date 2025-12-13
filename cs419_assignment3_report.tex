@@ -7,6 +7,9 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{lmodern}
 \usepackage{hyperref}
 \usepackage{microtype}
 
@@ -55,12 +58,23 @@ Given the dataset difficulty and the need to separate touching cells, marker-bas
 
 \section{Pipeline}
 Our end-to-end pipeline is summarized below.
+\subsection{Automatic Image Type Detection}
+To handle diverse microscopy image types (e.g., bright cells on dark background vs. dark cells on bright background), we implement an automatic invert detection mechanism. The algorithm analyzes the histogram of the feature channel after preprocessing:
+\begin{enumerate}
+\item Compute the intensity histogram of the feature image.
+\item Calculate the ratio of dark pixels (intensity $< 85$) and bright pixels (intensity $> 170$).
+\item If dark pixels dominate ($> 30\%$ of total and exceed bright pixels), the image likely has a dark background with bright cells, so we set the invert parameter to false.
+\item Otherwise, we assume bright background with dark cells and set the invert parameter to true (default).
+\end{enumerate}
+This automatic detection eliminates the need for manual parameter tuning when processing mixed datasets and ensures robust performance across different microscopy imaging conditions.
+
 \subsection{Preprocessing and Foreground Mask}
 \begin{enumerate}
 \item Convert image to an informative single-channel feature map (default: grayscale; optional: LAB/HSV channels).
 \item Contrast enhancement using CLAHE (optional).
 \item Denoising with Gaussian blur.
-\item Foreground/background separation via Otsu thresholding (or adaptive thresholding for uneven illumination).
+\item \textbf{Automatic invert detection} (if enabled): Analyze histogram to determine whether cells are brighter or darker than background.
+\item Foreground/background separation via Otsu thresholding (or adaptive thresholding for uneven illumination), using the automatically detected or manually specified invert setting.
 \item Morphological opening to remove small noise; optional closing to fill small holes.
 \end{enumerate}
 
@@ -69,9 +83,9 @@ Our end-to-end pipeline is summarized below.
 \item Compute the distance transform on the binary foreground mask.
 \item Compute \emph{sure foreground} by thresholding the distance map:
 \[
-\text{sure\_fg} = \mathbb{1}\left( D(x,y) > \alpha \cdot \max(D) \right)
+\text{sure\_fg} = \mathbf{1}\left( D(x,y) > \alpha \cdot \max(D) \right)
 \]
-where $\alpha$ is a tunable parameter.
+where $\mathbf{1}(\cdot)$ is the indicator function and $\alpha$ is a tunable parameter.
 \item Compute \emph{sure background} by dilating the foreground mask.
 \item Define the \emph{unknown region} as sure\_bg minus sure\_fg.
 \item Create connected-components markers from sure\_fg and set unknown pixels to 0.
@@ -92,7 +106,8 @@ Table~\ref{tab:params} lists the main parameters in our implementation. Their ef
 \toprule
 Parameter & Effect / trade-off \\ \midrule
 Feature channel & Drives separability of cells vs background \\
-Invert threshold & Needed if cells are darker in chosen channel \\
+Auto invert detection & Automatically determines if cells are brighter/darker than background \\
+Invert threshold & Manual override if auto-detection fails \\
 CLAHE (clip, tile) & Enhances local contrast; too high amplifies noise \\
 Blur kernel & Reduces noise; too high removes thin boundaries \\
 Threshold method & Otsu (global) vs adaptive (uneven illumination) \\
@@ -170,10 +185,11 @@ Common failure modes we observed (and what to do):
 Marker-based watershed with distance-transform markers provides a practical and explainable non-DL solution for microscopy cell instance segmentation, especially when touching cells are common. The method’s performance is governed mainly by marker quality; thus, parameter tuning should focus on thresholding, morphology, and the distance threshold controlling internal markers.
 
 \section*{Reproducibility}
-All code is provided in \texttt{watershed\_cellseg.py}. For batch evaluation:
+All code is provided in the file \texttt{watershed\_cellseg.py}. For batch evaluation:
 \begin{verbatim}
 python watershed_cellseg.py --img_dir images/ --label_dir labels/ \
   --out_dir preds/ --eval
 \end{verbatim}
+The automatic invert detection is enabled by default. To disable it and use manual settings, use \texttt{--no\_auto\_invert} along with \texttt{--invert} or \texttt{--no\_invert}.
 
 \end{document}
