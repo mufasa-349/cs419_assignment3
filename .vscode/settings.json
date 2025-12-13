@@ -1,0 +1,8 @@
+{
+    "latex-workshop.formatting.latex": "none",
+    "latex-workshop.latex.autoBuild": "never",
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.message.error.show": false,
+    "latex-workshop.message.warning.show": false
+}
+

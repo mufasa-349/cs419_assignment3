@@ -9,22 +9,49 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}Why Other Methods Were Not Chosen}{1}{subsection.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {III}Pipeline}{1}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}Automatic Image Type Detection}{1}{subsection.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Key parameters of the watershed pipeline.}}{2}{table.1}\protected@file@percent }
-\newlabel{tab:params}{{I}{2}{Key parameters of the watershed pipeline}{table.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Preprocessing and Foreground Mask}{2}{subsection.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Marker Extraction via Distance Transform}{2}{subsection.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Watershed and Instance Label Output}{2}{subsection.3.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {IV}Parameters and Their Effects}{2}{section.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Example results over 10 images (fill after running).}}{2}{table.2}\protected@file@percent }
-\newlabel{tab:results}{{II}{2}{Example results over 10 images (fill after running)}{table.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Most Sensitive Parameters}{2}{subsection.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Recommended Starting Values}{2}{subsection.4.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {V}Evaluation Protocol}{2}{section.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {VI}Results and Discussion}{2}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-A}}Quantitative Results}{2}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-B}}Qualitative Results}{2}{subsection.6.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Qualitative examples (add your own visuals).}}{3}{figure.1}\protected@file@percent }
-\newlabel{fig:qual}{{1}{3}{Qualitative examples (add your own visuals)}{figure.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-C}}Failure Modes}{3}{subsection.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {VII}Conclusion}{3}{section.7}\protected@file@percent }
-\gdef \@abspage@last{3}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-A}}Test Dataset}{2}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-B}}Quantitative Results}{2}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-C}}Qualitative Results}{2}{subsection.6.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Key parameters of the watershed pipeline.}}{3}{table.1}\protected@file@percent }
+\newlabel{tab:params}{{I}{3}{Key parameters of the watershed pipeline}{table.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Instance counts for selected test images.}}{3}{table.2}\protected@file@percent }
+\newlabel{tab:results}{{II}{3}{Instance counts for selected test images}{table.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Successful segmentation example (cell\_00969): Original image (left) and segmentation overlay with 29 detected instances (right).}}{3}{figure.1}\protected@file@percent }
+\newlabel{fig:success1}{{1}{3}{Successful segmentation example (cell\_00969): Original image (left) and segmentation overlay with 29 detected instances (right)}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {VI-C}1}Successful Cases}{3}{subsubsection.6.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces High-density cell image (cell\_00968): Original (left) and segmentation with 151 detected instances (right).}}{3}{figure.2}\protected@file@percent }
+\newlabel{fig:success2}{{2}{3}{High-density cell image (cell\_00968): Original (left) and segmentation with 151 detected instances (right)}{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Dark-background image (cell\_00971): Original (left) and segmentation with 13 detected instances (right). Automatic invert detection handled this case correctly.}}{3}{figure.3}\protected@file@percent }
+\newlabel{fig:success3}{{3}{3}{Dark-background image (cell\_00971): Original (left) and segmentation with 13 detected instances (right). Automatic invert detection handled this case correctly}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {VI-C}2}Failure Cases}{3}{subsubsection.6.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Under-segmentation case (cell\_00987): Only 9 instances detected. Some cells are merged due to insufficient markers from distance transform.}}{4}{figure.4}\protected@file@percent }
+\newlabel{fig:failure1}{{4}{4}{Under-segmentation case (cell\_00987): Only 9 instances detected. Some cells are merged due to insufficient markers from distance transform}{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Over-segmentation case (cell\_00967): 119 instances detected, some may be noise artifacts. The high density and complex morphology challenge the method.}}{4}{figure.5}\protected@file@percent }
+\newlabel{fig:failure2}{{5}{4}{Over-segmentation case (cell\_00967): 119 instances detected, some may be noise artifacts. The high density and complex morphology challenge the method}{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Low-contrast challenge (cell\_00986): Only 19 instances detected. Low contrast between cells and background makes thresholding unreliable.}}{4}{figure.6}\protected@file@percent }
+\newlabel{fig:failure3}{{6}{4}{Low-contrast challenge (cell\_00986): Only 19 instances detected. Low contrast between cells and background makes thresholding unreliable}{figure.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Irregular morphology (bmp-img2): 29 instances detected. Irregular cell shapes and size variations challenge the distance-transform marker extraction.}}{4}{figure.7}\protected@file@percent }
+\newlabel{fig:failure4}{{7}{4}{Irregular morphology (bmp-img2): 29 instances detected. Irregular cell shapes and size variations challenge the distance-transform marker extraction}{figure.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Well-separated cells (cell\_00975): Original (left) and segmentation with 53 detected instances (right). Good cell separation and contrast.}}{4}{figure.8}\protected@file@percent }
+\newlabel{fig:success4}{{8}{4}{Well-separated cells (cell\_00975): Original (left) and segmentation with 53 detected instances (right). Good cell separation and contrast}{figure.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces BMP format image (bmp-img1): Original (left) and segmentation with 24 detected instances (right). Method handles different image formats well.}}{4}{figure.9}\protected@file@percent }
+\newlabel{fig:success5}{{9}{4}{BMP format image (bmp-img1): Original (left) and segmentation with 24 detected instances (right). Method handles different image formats well}{figure.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Varying cell sizes (cell\_00973): Original (left) and segmentation with 92 detected instances (right). Method handles size variations reasonably well.}}{4}{figure.10}\protected@file@percent }
+\newlabel{fig:success6}{{10}{4}{Varying cell sizes (cell\_00973): Original (left) and segmentation with 92 detected instances (right). Method handles size variations reasonably well}{figure.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Very high density (cell\_00972): 134 instances detected. Extreme density leads to some missed detections and boundary placement errors.}}{5}{figure.11}\protected@file@percent }
+\newlabel{fig:failure5}{{11}{5}{Very high density (cell\_00972): 134 instances detected. Extreme density leads to some missed detections and boundary placement errors}{figure.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Instance label visualization (cell\_00970): Original image (left) and color-coded instance labels (right). Each cell has a unique integer label (1--89).}}{5}{figure.12}\protected@file@percent }
+\newlabel{fig:success7}{{12}{5}{Instance label visualization (cell\_00970): Original image (left) and color-coded instance labels (right). Each cell has a unique integer label (1--89)}{figure.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-D}}Failure Modes and Analysis}{5}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-E}}When the Method Performs Well}{5}{subsection.6.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-F}}When the Method Performs Poorly}{5}{subsection.6.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Conclusion}{5}{section.7}\protected@file@percent }
+\gdef \@abspage@last{6}

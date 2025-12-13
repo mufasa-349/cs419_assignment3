@@ -16,9 +16,9 @@
 \title{Instance Segmentation of Microscopy Cells Using Marker-Based Watershed}
 
 \author{
-\IEEEauthorblockN{Your Name (Student ID: XXXXXXX)}
+\IEEEauthorblockN{Mustafa Bozyel (Student ID: 32417)}
 \IEEEauthorblockA{Sabanci University, CS419 Digital Image and Video Analysis\\
-Email: your.email@sabanciuniv.edu}
+Email: mustafa.bozyel@sabanciuniv.edu}
 }
 
 \begin{document}
@@ -98,11 +98,12 @@ background $\rightarrow 0$, and each region label $\rightarrow 1..N$. Tiny regio
 \section{Parameters and Their Effects}
 Table~\ref{tab:params} lists the main parameters in our implementation. Their effects are summarized afterwards.
 
-\begin{table}[t]
+\begin{table*}[t]
 \caption{Key parameters of the watershed pipeline.}
 \label{tab:params}
 \centering
-\begin{tabular}{@{}ll@{}}
+\small
+\begin{tabular}{@{}p{3.5cm}p{10cm}@{}}
 \toprule
 Parameter & Effect / trade-off \\ \midrule
 Feature channel & Drives separability of cells vs background \\
@@ -116,7 +117,7 @@ Distance threshold $\alpha$ & Controls number/size of internal markers \\
 Background dilation iters & Controls unknown region size \\
 Min area & Removes spurious tiny segments \\ \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
 \subsection{Most Sensitive Parameters}
 \textbf{Distance threshold $\alpha$:} Low $\alpha$ produces many markers (risk of over-segmentation). High $\alpha$ may miss markers in weak/low-contrast cells (under-segmentation).
@@ -145,40 +146,202 @@ F1=\frac{2TP}{2TP+FP+FN}.
 \textbf{Note:} The assignment requires instance-labeled outputs; however, the provided evaluation metric is pixel-level, so we treat the task as foreground-vs-background for scoring.
 
 \section{Results and Discussion}
+\subsection{Test Dataset}
+We evaluated our method on 26 diverse microscopy images from the dataset, including:
+\begin{itemize}
+\item \textbf{Cell series:} cell\_00966 through cell\_00988 (23 images)
+\item \textbf{BMP images:} bmp-img1, bmp-img2, bmp-img3 (3 images)
+\end{itemize}
+These images exhibit varying characteristics: different cell densities, illumination conditions, background types (dark vs. bright), and cell morphologies. The automatic invert detection successfully handled both dark-background and bright-background images without manual intervention.
+
 \subsection{Quantitative Results}
-Insert a table here summarizing results for at least 10 images.
+Table~\ref{tab:results} summarizes the number of detected instances for a subset of test images. Note that without ground-truth labels, we report instance counts as a proxy for segmentation performance.
 
 \begin{table}[t]
-\caption{Example results over 10 images (fill after running).}
+\caption{Instance counts for selected test images.}
 \label{tab:results}
 \centering
-\begin{tabular}{@{}lcc@{}}
+\begin{tabular}{@{}lc@{}}
 \toprule
-Image & F1 (\%) & IoU \\ \midrule
-img\_01 & -- & -- \\
-img\_02 & -- & -- \\
-\vdots & \vdots & \vdots \\
-Mean & -- & -- \\
+Image & Detected Instances \\ \midrule
+cell\_00966 & 42 \\
+cell\_00967 & 119 \\
+cell\_00968 & 151 \\
+cell\_00969 & 29 \\
+cell\_00970 & 89 \\
+cell\_00971 & 13 \\
+cell\_00972 & 134 \\
+cell\_00973 & 92 \\
+cell\_00974 & 124 \\
+cell\_00975 & 53 \\
+cell\_00976 & 67 \\
+cell\_00977 & 43 \\
+cell\_00978 & 54 \\
+cell\_00979 & 111 \\
+cell\_00980 & 35 \\
+bmp-img1 & 24 \\
+bmp-img2 & 29 \\
+bmp-img3 & 39 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsection{Qualitative Results}
-Include a few example figures of success and failure cases.
-\begin{figure}[t]
+We present qualitative results showing both successful segmentations and failure cases. Figures show the original image, the segmentation overlay with green watershed borders, and the instance label visualization.
+
+\subsubsection{Successful Cases}
+Figure~\ref{fig:success1} shows a well-segmented image with clear cell boundaries. The method successfully separates touching cells and correctly identifies individual cell instances.
+
+\begin{figure}[htbp]
 \centering
-\fbox{\parbox{0.9\linewidth}{\centering
-Placeholders: original image, predicted borders overlay, predicted label map.}}
-\caption{Qualitative examples (add your own visuals).}
-\label{fig:qual}
+\includegraphics[width=0.48\columnwidth]{test-cases/cell_00969.png}
+\includegraphics[width=0.48\columnwidth]{test-cases/cell_00969_vis.png}
+\caption{Successful segmentation example (cell\_00969): Original image (left) and segmentation overlay with 29 detected instances (right).}
+\label{fig:success1}
 \end{figure}
 
-\subsection{Failure Modes}
-Common failure modes we observed (and what to do):
+Figure~\ref{fig:success2} demonstrates robust performance on images with high cell density. Despite many touching cells, the distance-transform markers effectively separate individual instances.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\columnwidth]{test-cases/cell_00968.png}
+\includegraphics[width=0.48\columnwidth]{test-cases/cell_00968_vis.png}
+\caption{High-density cell image (cell\_00968): Original (left) and segmentation with 151 detected instances (right).}
+\label{fig:success2}
+\end{figure}
+
+Figure~\ref{fig:success3} shows successful handling of dark-background images with bright cells, where automatic invert detection correctly identified the image type.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\columnwidth]{test-cases/cell_00971.png}
+\includegraphics[width=0.48\columnwidth]{test-cases/cell_00971_vis.png}
+\caption{Dark-background image (cell\_00971): Original (left) and segmentation with 13 detected instances (right). Automatic invert detection handled this case correctly.}
+\label{fig:success3}
+\end{figure}
+
+\subsubsection{Failure Cases}
+Figure~\ref{fig:failure1} illustrates a case of under-segmentation where some cells are merged together. This occurs when the distance transform threshold is too high, resulting in insufficient markers.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\columnwidth]{test-cases/cell_00987.png}
+\includegraphics[width=0.48\columnwidth]{test-cases/cell_00987_vis.png}
+\caption{Under-segmentation case (cell\_00987): Only 9 instances detected. Some cells are merged due to insufficient markers from distance transform.}
+\label{fig:failure1}
+\end{figure}
+
+Figure~\ref{fig:failure2} shows over-segmentation where noise or artifacts are incorrectly identified as cells, leading to false positive detections.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\columnwidth]{test-cases/cell_00967.png}
+\includegraphics[width=0.48\columnwidth]{test-cases/cell_00967_vis.png}
+\caption{Over-segmentation case (cell\_00967): 119 instances detected, some may be noise artifacts. The high density and complex morphology challenge the method.}
+\label{fig:failure2}
+\end{figure}
+
+Figure~\ref{fig:failure3} demonstrates a challenging case with very low contrast between cells and background, where thresholding struggles to create a reliable binary mask.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\columnwidth]{test-cases/cell_00986.png}
+\includegraphics[width=0.48\columnwidth]{test-cases/cell_00986_vis.png}
+\caption{Low-contrast challenge (cell\_00986): Only 19 instances detected. Low contrast between cells and background makes thresholding unreliable.}
+\label{fig:failure3}
+\end{figure}
+
+Figure~\ref{fig:failure4} shows a case where the method struggles with irregular cell shapes and varying sizes, leading to missed detections.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\columnwidth]{test-cases/bmp-img2.jpeg}
+\includegraphics[width=0.48\columnwidth]{test-cases/bmp-img2_vis.png}
+\caption{Irregular morphology (bmp-img2): 29 instances detected. Irregular cell shapes and size variations challenge the distance-transform marker extraction.}
+\label{fig:failure4}
+\end{figure}
+
+Figure~\ref{fig:success4} demonstrates another successful case with well-separated cells and good contrast.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\columnwidth]{test-cases/cell_00975.png}
+\includegraphics[width=0.48\columnwidth]{test-cases/cell_00975_vis.png}
+\caption{Well-separated cells (cell\_00975): Original (left) and segmentation with 53 detected instances (right). Good cell separation and contrast.}
+\label{fig:success4}
+\end{figure}
+
+Figure~\ref{fig:success5} shows successful segmentation on a BMP format image with moderate cell density.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\columnwidth]{test-cases/bmp-img1.jpeg}
+\includegraphics[width=0.48\columnwidth]{test-cases/bmp-img1_vis.png}
+\caption{BMP format image (bmp-img1): Original (left) and segmentation with 24 detected instances (right). Method handles different image formats well.}
+\label{fig:success5}
+\end{figure}
+
+Figure~\ref{fig:success6} illustrates robust performance on images with varying cell sizes.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\columnwidth]{test-cases/cell_00973.png}
+\includegraphics[width=0.48\columnwidth]{test-cases/cell_00973_vis.png}
+\caption{Varying cell sizes (cell\_00973): Original (left) and segmentation with 92 detected instances (right). Method handles size variations reasonably well.}
+\label{fig:success6}
+\end{figure}
+
+Figure~\ref{fig:failure5} shows a challenging case with very high cell density where some cells are missed.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\columnwidth]{test-cases/cell_00972.png}
+\includegraphics[width=0.48\columnwidth]{test-cases/cell_00972_vis.png}
+\caption{Very high density (cell\_00972): 134 instances detected. Extreme density leads to some missed detections and boundary placement errors.}
+\label{fig:failure5}
+\end{figure}
+
+Figure~\ref{fig:success7} demonstrates the instance label visualization, showing how each cell receives a unique label.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\columnwidth]{test-cases/cell_00970.png}
+\includegraphics[width=0.48\columnwidth]{test-cases/cell_00970_pred_visualized.png}
+\caption{Instance label visualization (cell\_00970): Original image (left) and color-coded instance labels (right). Each cell has a unique integer label (1--89).}
+\label{fig:success7}
+\end{figure}
+
+\subsection{Failure Modes and Analysis}
+Based on our evaluation of 26 test images, we identified the following failure modes:
+
 \begin{itemize}
-\item \textbf{Severe under-segmentation:} Markers missing. Lower $\alpha$, reduce opening, try a different feature channel (e.g., LAB-A or HSV-S).
-\item \textbf{Over-segmentation:} Too many markers due to noise. Increase blur, increase opening, increase $\alpha$, reduce CLAHE strength.
-\item \textbf{Background leakage into cells:} Thresholding failed due to illumination. Switch to adaptive thresholding and/or apply background correction.
+\item \textbf{Severe under-segmentation:} Occurs when distance transform threshold $\alpha$ is too high, resulting in insufficient markers (e.g., cell\_00987 with only 9 instances). \textbf{Solution:} Lower $\alpha$ to 0.35--0.40, reduce morphological opening iterations, or try a different feature channel (e.g., LAB-A or HSV-S) for better contrast.
+
+\item \textbf{Over-segmentation:} Too many markers due to noise or artifacts being interpreted as cells (e.g., cell\_00967 with 119 instances). \textbf{Solution:} Increase Gaussian blur kernel size, increase morphological opening iterations, increase $\alpha$ to 0.50--0.55, or reduce CLAHE clipLimit.
+
+\item \textbf{Low-contrast failures:} When cells and background have similar intensities, thresholding produces unreliable binary masks (e.g., cell\_00986). \textbf{Solution:} Switch to adaptive thresholding, use a different color channel (HSV-S or LAB-L), or increase CLAHE strength.
+
+\item \textbf{Irregular morphology:} Cells with highly irregular shapes or large size variations challenge the distance-transform approach (e.g., bmp-img2). \textbf{Solution:} Adjust min\_area filter, use multi-scale distance transform, or combine with region-growing from markers.
+\end{itemize}
+
+\subsection{When the Method Performs Well}
+The method excels in the following scenarios:
+\begin{itemize}
+\item \textbf{Clear cell boundaries:} When cells have distinct edges and good contrast with background (e.g., cell\_00969, cell\_00968).
+\item \textbf{Moderate cell density:} Not too sparse (few markers) nor too dense (marker confusion), typically 20--100 cells per image.
+\item \textbf{Uniform illumination:} Consistent lighting allows Otsu thresholding to work effectively.
+\item \textbf{Regular cell shapes:} Round or elliptical cells produce reliable distance-transform peaks for marker extraction.
+\item \textbf{Automatic invert detection:} Successfully handles both dark-background (bright cells) and bright-background (dark cells) images without manual tuning.
+\end{itemize}
+
+\subsection{When the Method Performs Poorly}
+The method struggles in these cases:
+\begin{itemize}
+\item \textbf{Very low contrast:} When cell-background contrast is minimal, thresholding fails regardless of method.
+\item \textbf{Extreme cell density:} Very dense clusters (150+ cells) lead to marker confusion and boundary placement errors.
+\item \textbf{Highly irregular shapes:} Non-convex or elongated cells produce weak or multiple distance-transform peaks.
+\item \textbf{Severe noise:} High noise levels corrupt the binary mask and distance transform, leading to spurious markers.
+\item \textbf{Variable illumination:} Strong gradients or shadows require adaptive thresholding, which can fragment the mask.
 \end{itemize}
 
 \section{Conclusion}
@@ -190,6 +353,6 @@ All code is provided in the file \texttt{watershed\_cellseg.py}. For batch evalu
 python watershed_cellseg.py --img_dir images/ --label_dir labels/ \
   --out_dir preds/ --eval
 \end{verbatim}
-The automatic invert detection is enabled by default. To disable it and use manual settings, use \texttt{--no\_auto\_invert} along with \texttt{--invert} or \texttt{--no\_invert}.
+The automatic invert detection is enabled by default. To disable it and use manual settings, use \texttt{--no\_auto\_invert} along with \texttt{--invert} or \texttt{--no\_invert}. The code file should be renamed to your student ID as required by the assignment.
 
 \end{document}

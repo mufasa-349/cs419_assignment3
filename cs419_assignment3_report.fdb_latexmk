@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1765646015.90909 "/Users/mustafabozyel/Github-Desktop/cs419_assignment3/cs419_assignment3_report.tex" "cs419_assignment3_report.pdf" "cs419_assignment3_report" 1765646016.37122 0
-  "/Users/mustafabozyel/Github-Desktop/cs419_assignment3/cs419_assignment3_report.tex" 1765646015.69319 11176 34461f0f4edbf5c55c9871ed8d9ef0a5 ""
+["pdflatex"] 1765646184.5227 "/Users/mustafabozyel/Github-Desktop/cs419_assignment3/cs419_assignment3_report.tex" "cs419_assignment3_report.pdf" "cs419_assignment3_report" 1765646184.96528 0
+  "/Users/mustafabozyel/Github-Desktop/cs419_assignment3/cs419_assignment3_report.tex" 1765646184.29542 11183 0030a11327aa081cc5c1f417b9e7b98f ""
   "/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc" 1202520719 2840 216e6e45ad352e2456e1149f28885bee ""
   "/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc" 1202520719 2327 9d6df24f9c4f7368395224341a95523a ""
@@ -131,9 +131,9 @@
   "/usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1765646003 79517 32292db50fd160f1ad29b35b8b1526b1 ""
   "/usr/local/texlive/2025basic/texmf-var/web2c/pdftex/pdflatex.fmt" 1763937976 2663840 122873bebfb0b205db88accc91ab480d ""
   "/usr/local/texlive/2025basic/texmf.cnf" 1741448314 628 81d1ada0f601fb1ffa62f1323192d946 ""
-  "cs419_assignment3_report.aux" 1765646016.28464 3450 cc9612aa15777630ab12a577c31dab30 "pdflatex"
-  "cs419_assignment3_report.out" 1765646016.28512 3436 8229286cf0e6189e765eb204b8efd4be "pdflatex"
-  "cs419_assignment3_report.tex" 1765646015.69319 11176 34461f0f4edbf5c55c9871ed8d9ef0a5 ""
+  "cs419_assignment3_report.aux" 1765646184.88039 3450 cc9612aa15777630ab12a577c31dab30 "pdflatex"
+  "cs419_assignment3_report.out" 1765646184.88087 3436 8229286cf0e6189e765eb204b8efd4be "pdflatex"
+  "cs419_assignment3_report.tex" 1765646184.29542 11183 0030a11327aa081cc5c1f417b9e7b98f ""
   (generated)
   "cs419_assignment3_report.aux"
   "cs419_assignment3_report.log"
