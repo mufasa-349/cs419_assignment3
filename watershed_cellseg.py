@@ -105,6 +105,32 @@ def extract_feature_channel(bgr8: np.ndarray, channel: str) -> np.ndarray:
 
     raise ValueError(f"Unknown channel: {channel}")
 
+def auto_detect_invert(feat: np.ndarray) -> bool:
+    """
+    Otomatik olarak invert gerekip gerekmediğini tespit eder.
+    Eğer görüntüde çoğu piksel koyu ise (siyah arka plan) ve hücreler parlak ise,
+    invert=False döner (hücreler parlak olduğu için).
+    Eğer görüntüde çoğu piksel parlak ise (beyaz arka plan) ve hücreler koyu ise,
+    invert=True döner (hücreler koyu olduğu için).
+    """
+    # Histogram analizi
+    hist = cv2.calcHist([feat], [0], None, [256], [0, 256])
+    
+    # Koyu pikseller (0-85) ve parlak pikseller (170-255) oranı
+    dark_pixels = hist[0:86].sum()
+    bright_pixels = hist[170:256].sum()
+    total_pixels = feat.size
+    
+    dark_ratio = dark_pixels / total_pixels
+    bright_ratio = bright_pixels / total_pixels
+    
+    # Eğer çoğu piksel koyu ise (siyah arka plan), hücreler parlak olmalı -> invert=False
+    # Eğer çoğu piksel parlak ise (beyaz arka plan), hücreler koyu olmalı -> invert=True
+    if dark_ratio > 0.3 and dark_ratio > bright_ratio:
+        return False  # Siyah arka plan, parlak hücreler
+    else:
+        return True   # Beyaz/parlak arka plan, koyu hücreler (varsayılan)
+
 
 # -----------------------------
 # Metrics
@@ -148,6 +174,7 @@ class Params:
     # feature extraction / contrast
     channel: str = "gray"
     invert: bool = True                   # True if cells appear darker than background in chosen channel
+    auto_invert: bool = False             # If True, automatically detect invert based on image histogram
     use_clahe: bool = True
     clahe_clip: float = 2.0
     clahe_tile: int = 8                   # tileGridSize=(tile,tile)
@@ -193,16 +220,21 @@ def marker_based_watershed(bgr8: np.ndarray, p: Params) -> Tuple[np.ndarray, np.
     else:
         feat_blur = feat
 
+    # Otomatik invert tespiti (eğer aktifse)
+    actual_invert = p.invert
+    if p.auto_invert:
+        actual_invert = auto_detect_invert(feat_blur)
+
     # Threshold: produce binary mask where cells = 255, background = 0
     if p.thresh_method.lower() == "otsu":
-        if p.invert:
+        if actual_invert:
             _, bw = cv2.threshold(feat_blur, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
         else:
             _, bw = cv2.threshold(feat_blur, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
     elif p.thresh_method.lower() == "adaptive":
         block = _ensure_odd(int(p.adaptive_block))
         # AdaptiveThreshold outputs 255 for pixels "above" local threshold. Use invert option by flipping types.
-        if p.invert:
+        if actual_invert:
             bw = cv2.adaptiveThreshold(feat_blur, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
                                        cv2.THRESH_BINARY_INV, block, int(p.adaptive_C))
         else:
@@ -315,6 +347,10 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument("--invert", action="store_true", help="Invert thresholding (useful when cells are darker)")
     ap.add_argument("--no_invert", dest="invert", action="store_false", help="Do NOT invert thresholding")
     ap.set_defaults(invert=True)
+    
+    ap.add_argument("--auto_invert", action="store_true", help="Automatically detect invert based on image histogram (overrides --invert/--no_invert)")
+    ap.add_argument("--no_auto_invert", dest="auto_invert", action="store_false", help="Disable automatic invert detection")
+    ap.set_defaults(auto_invert=True)  # Varsayılan olarak otomatik tespit aktif
 
     ap.add_argument("--thresh_method", type=str, default="otsu", choices=["otsu", "adaptive"])
     ap.add_argument("--adaptive_block", type=int, default=51)
@@ -345,6 +381,7 @@ def build_params(ns: argparse.Namespace) -> Params:
     return Params(
         channel=ns.channel,
         invert=bool(ns.invert),
+        auto_invert=bool(ns.auto_invert),
         use_clahe=bool(ns.use_clahe),
         clahe_clip=float(ns.clahe_clip),
         clahe_tile=int(ns.clahe_tile),
