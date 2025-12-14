@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.24)  13 DEC 2025 20:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.24)  13 DEC 2025 20:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -906,10 +906,10 @@ d.
 (rerunfilecheck)             Checksum: 8402FC0F4B8BA5D06ACA81A6ED4FB0D8;4355.
  ) 
 Here is how much of TeX's memory you used:
- 15320 strings out of 474662
- 244588 string characters out of 5751108
- 1062052 words of memory out of 5000000
- 37837 multiletter control sequences out of 15000+600000
+ 15319 strings out of 474662
+ 244566 string characters out of 5751108
+ 1062041 words of memory out of 5000000
+ 37836 multiletter control sequences out of 15000+600000
  749536 words of font info for 229 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  75i,11n,79p,1021b,2153s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -931,7 +931,7 @@ c/lm/lmsy7.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/l
 mtk10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtt10
 .pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtt8.pfb><
 /usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on cs419_assignment3_report.pdf (6 pages, 14305938 bytes).
+Output written on cs419_assignment3_report.pdf (6 pages, 14305952 bytes).
 PDF statistics:
  445 PDF objects out of 1000 (max. 8388607)
  359 compressed objects within 4 object streams

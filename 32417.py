@@ -14,17 +14,13 @@ Core method: marker-based watershed + distance transform markers.
 Usage examples
 --------------
 # Single image -> instance labels (16-bit PNG/TIFF)
-python watershed_cellseg.py --img path/to/image.tif --out pred_labels.tif
+python 32417.py --img path/to/image.tif --out pred_labels.tif
 
 # Also save a visualization overlay with watershed borders
-python watershed_cellseg.py --img image.tif --out pred_labels.tif --save_vis pred_overlay.png
+python 32417.py --img image.tif --out pred_labels.tif --save_vis pred_overlay.png
 
 # Batch evaluate (binary pixel-level F1 + IoU) using label directory
-python watershed_cellseg.py --img_dir images/ --label_dir labels/ --out_dir preds/ --eval
-
-Notes
------
-- The course submission requires your file name to be your student id. Rename this file accordingly.
+python 32417.py --img_dir images/ --label_dir labels/ --out_dir preds/ --eval
 - The dataset images/labels are 16-bit TIFF. This script handles uint16 by normalizing to uint8 for processing.
 """
 from __future__ import annotations

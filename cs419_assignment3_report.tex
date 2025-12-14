@@ -486,11 +486,11 @@ The method struggles in these cases:
 Marker-based watershed with distance-transform markers provides a practical and explainable non-DL solution for microscopy cell instance segmentation, especially when touching cells are common. The method’s performance is governed mainly by marker quality; thus, parameter tuning should focus on thresholding, morphology, and the distance threshold controlling internal markers.
 
 \section*{Reproducibility}
-All code is provided in the file \texttt{watershed\_cellseg.py}. For batch evaluation:
+All code is provided in the file \texttt{32417.py}. For batch evaluation:
 \begin{lstlisting}[language=bash]
-python watershed_cellseg.py --img_dir images/ 
+python 32417.py --img_dir images/ 
   --label_dir labels/ --out_dir preds/ --eval
 \end{lstlisting}
-The automatic invert detection is enabled by default. To disable it and use manual settings, use \texttt{--no\_auto\_invert} along with \texttt{--invert} or \texttt{--no\_invert}. The code file should be renamed to your student ID as required by the assignment.
+The automatic invert detection is enabled by default. To disable it and use manual settings, use \texttt{--no\_auto\_invert} along with \texttt{--invert} or \texttt{--no\_invert}.
 
 \end{document}
