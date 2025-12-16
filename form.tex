@@ -1,0 +1,132 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[turkish]{babel}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{ragged2e}
+
+\geometry{left=1.8cm,right=1.8cm,top=2.0cm,bottom=2.0cm}
+\pagestyle{empty}
+
+\setlength{\arrayrulewidth}{0.6pt}
+\renewcommand{\arraystretch}{1.15}
+
+% Likert (1..6) hücresi
+\newcommand{\likertcell}{%
+\begin{tabular}[c]{@{}c@{}}%
+1\\2\\3\\4\\5\\6%
+\end{tabular}%
+}
+
+\begin{document}
+
+% ====== ÜST BİLGİ KUTULARI ======
+\noindent
+\begin{tabularx}{\textwidth}{|X|p{5.0cm}|}
+\hline
+\textbf{Hastanın Adı, Soyadı ve Yaşı:} \hfill\mbox{} &
+\textbf{Tarih:}\hfill\mbox{} \\
+\hline
+\textbf{Başlama Tarihi:}\hspace{1.2cm} /\hspace{0.6cm}/\hspace{0.6cm}\hfill\mbox{} &
+\textbf{Değerlendirdi:}\hfill\mbox{} \\
+\hline
+\end{tabularx}
+
+\vspace{0.6cm}
+
+% ====== BAŞLIK ======
+\begin{center}
+\textbf{\Large PREMENSTRÜEL DİSFORİDE SORUN \c{S}İDDETİ}\\
+\textbf{\Large G\"UNL\"UK KAYIT \c{C}İZELGESİ (KISA FORM)}
+\end{center}
+
+\vspace{0.2cm}
+
+\noindent
+Her akşam aşağıda sıralanan sorunların şiddetlerini işaretleyiniz.
+Sorunun şiddetini derecesine göre yuvarlak içine alınız.
+
+\vspace{0.35cm}
+
+% ====== SORUN ŞİDDET DERECELERİ KUTUSU ======
+\begin{center}
+\small
+\begin{tabular}{|p{9.5cm}|}
+\hline
+\centering \textbf{Sorun Şiddet Dereceleri} \\
+\hline
+\begin{tabular}{p{4.6cm}p{4.6cm}}
+1 = Hiç yok & 4 = Orta \\
+2 = Çok hafif (minimal) & 5 = Şiddetli \\
+3 = Hafif & 6 = Çok şiddetli \\
+\end{tabular}
+\\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{0.35cm}
+
+% ====== ANA TABLO ======
+\noindent\centering
+\scriptsize
+\begin{tabular}{|
+>{\RaggedRight\arraybackslash}m{6.4cm}|
+*{7}{>{\centering\arraybackslash}m{1.45cm}|}}
+\hline
+\textbf{Doğru günün altını işaretleyiniz} &
+\textbf{Pzt.} & \textbf{Salı} & \textbf{Çar.} & \textbf{Per.} & \textbf{Cuma} & \textbf{C.tesi} & \textbf{Pazar} \\
+\hline
+
+Günün altına tarihi yazınız &
+- & - & - & - & - & - & - \\
+\hline
+
+Lekelenme ya da adet kanamasını L ya da A ile kaydedin &
+- & - & - & - & - & - & - \\
+\hline
+
+\textbf{1.} Kendimi üzgün, çökkün, huzursuz ya da umutsuz ya da değersiz ya da suçluymuşum gibi hissettim &
+\likertcell & \likertcell & \likertcell & \likertcell & \likertcell & \likertcell & \likertcell \\
+\hline
+
+\textbf{2.} Kendimi sıkıntılı, endişeli ya da gergin hissettim &
+\likertcell & \likertcell & \likertcell & \likertcell & \likertcell & \likertcell & \likertcell \\
+\hline
+
+\textbf{3.} Duygularımda ani değişiklikler (yani aniden üzülmek ve ağlamak) oldu ya da reddedilmeye çok duyarlıydım, çok kolay incindim &
+\likertcell & \likertcell & \likertcell & \likertcell & \likertcell & \likertcell & \likertcell \\
+\hline
+
+\textbf{4.} Kendimi sinirli ya da kızgın hissettim. &
+\likertcell & \likertcell & \likertcell & \likertcell & \likertcell & \likertcell & \likertcell \\
+\hline
+
+\textbf{5.} Olağan etkinliklerime (yani iş, okul, arkadaşlar, hobilerim, ev işleri) karşı ilgim azaldı &
+\likertcell & \likertcell & \likertcell & \likertcell & \likertcell & \likertcell & \likertcell \\
+\hline
+
+\textbf{6.} Dikkatimi toplamada güçlük çektim &
+\likertcell & \likertcell & \likertcell & \likertcell & \likertcell & \likertcell & \likertcell \\
+\hline
+
+\textbf{7.} Kendimi halsiz, yorgun ya da enerjisiz hissettim &
+\likertcell & \likertcell & \likertcell & \likertcell & \likertcell & \likertcell & \likertcell \\
+\hline
+\end{tabular}
+
+\vfill
+
+% ====== FOOTER ======
+\noindent\rule{\textwidth}{0.4pt}\par
+\vspace{2mm}
+\noindent\scriptsize
+Premenstrual Disforide Sorun Şiddeti Günlük Kayıt Çizelgesi (Kısa Form)
+\hfill
+Sayfa 1 / 2
+
+\end{document}
